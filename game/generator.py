@@ -5,7 +5,7 @@ import math
 from typing import List
 
 from .models import (
-    Planet, PlanetType, SolarSystem, StarType, Cluster, EmpireState
+    Planet, PlanetType, SolarSystem, StarType, Cluster, EmpireState, NewsItem
 )
 
 CLUSTER_NAMES = [
@@ -138,8 +138,42 @@ def generate_galaxy(seed: int = 42, num_clusters: int = 8) -> List[Cluster]:
 def new_game(seed: int = 42) -> EmpireState:
     clusters = generate_galaxy(seed)
     state = EmpireState(clusters=clusters)
-    state.events = [
-        "Turn 1 — The Galactic Empire spans the stars. Your reign begins.",
-        "Advisors report the empire is stable. Set your policies wisely, Emperor.",
+
+    total_pop = sum(c.total_population for c in clusters)
+    total_sys = sum(len(c.systems) for c in clusters)
+
+    opening_dispatches = [
+        NewsItem(
+            turn=1,
+            source="IMPERIAL HERALD",
+            headline="THE EMPEROR ASCENDS — A NEW REIGN BEGINS",
+            body=(
+                f"From the Imperial Throne, the Emperor today assumed command of a "
+                f"galactic empire spanning {len(clusters)} clusters, {total_sys} solar "
+                f"systems, and {total_pop:,} million souls. The Imperial Council has "
+                f"presented the standard instruments of power: the tax register, the "
+                f"fleet deployments, and the treasury accounts. 'The empire is stable, "
+                f"for now,' the Chief Advisor noted. 'How it remains so depends entirely "
+                f"on the wisdom of the throne.' The galaxy watches. Your first edicts "
+                f"await, Emperor."
+            ),
+            severity="info",
+        ),
+        NewsItem(
+            turn=1,
+            source="ECONOMIC AFFAIRS BUREAU",
+            headline="ADVISOR BRIEFING: THE LEVERS OF IMPERIAL POWER",
+            body=(
+                "The four instruments of Imperial governance are set at moderate "
+                "defaults. Tax Rate (20%) generates steady revenue but leaves room "
+                "to raise or lower as circumstances demand. Inflation (5%) sits within "
+                "the stable band — push it higher for short-term gain at long-term cost. "
+                "Defense Spending (300 Cr/cycle) maintains the fleet at adequate "
+                "readiness. Bread & Circus (200 Cr/cycle) keeps the mob content. "
+                "The empire will tell you what it needs — read the dispatches and react."
+            ),
+            severity="info",
+        ),
     ]
+    state.news = [d.to_dict() for d in opening_dispatches]
     return state

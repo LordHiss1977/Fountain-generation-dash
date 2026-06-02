@@ -43,16 +43,44 @@ PLANET_ICONS = {
 
 
 @dataclass
+class NewsItem:
+    """A single narrative news dispatch."""
+    turn: int
+    source: str      # e.g. "IMPERIAL HERALD"
+    headline: str
+    body: str
+    severity: str = "info"   # "info" | "good" | "warning" | "critical"
+
+    def to_dict(self) -> dict:
+        return {
+            "turn": self.turn,
+            "source": self.source,
+            "headline": self.headline,
+            "body": self.body,
+            "severity": self.severity,
+        }
+
+    @classmethod
+    def from_dict(cls, d: dict) -> NewsItem:
+        return cls(
+            turn=d["turn"],
+            source=d["source"],
+            headline=d["headline"],
+            body=d["body"],
+            severity=d.get("severity", "info"),
+        )
+
+
+@dataclass
 class Planet:
     name: str
     planet_type: PlanetType
     population: int        # millions
-    base_production: float # raw resource output
+    base_production: float
     loyalty: float         # 0–100
 
     @property
     def tax_yield(self) -> float:
-        """Credits generated before applying the empire tax rate."""
         if self.planet_type == PlanetType.WATER_WORLD:
             return self.population * 0.6
         if self.planet_type == PlanetType.MINERAL_ROCK:
@@ -175,17 +203,23 @@ class Cluster:
 class EmpireState:
     clusters: List[Cluster]
     treasury: float = 15_000.0
-    tax_rate: float = 20.0        # percent  0–50
-    inflation_rate: float = 5.0   # percent  0–20
-    defense_spending: float = 300.0   # credits/turn
-    bread_circus_spending: float = 200.0  # credits/turn
+    tax_rate: float = 20.0
+    inflation_rate: float = 5.0
+    defense_spending: float = 300.0
+    bread_circus_spending: float = 200.0
     turn: int = 1
-    happiness: float = 65.0       # 0–100
-    military_strength: float = 60.0  # 0–100
-    stability: float = 75.0       # 0–100
-    events: List[str] = field(default_factory=list)
+    happiness: float = 65.0
+    military_strength: float = 60.0
+    stability: float = 75.0
+    # Serialised as List[dict] so the dcc.Store JSON round-trip is clean
+    news: List[dict] = field(default_factory=list)
     game_over: bool = False
     game_over_reason: str = ""
+    # Previous-turn policy values — used to detect and narrate player decisions
+    last_tax_rate: float = 20.0
+    last_inflation_rate: float = 5.0
+    last_defense_spending: float = 300.0
+    last_bread_circus_spending: float = 200.0
 
     def to_dict(self) -> dict:
         return {
@@ -199,9 +233,13 @@ class EmpireState:
             "happiness": self.happiness,
             "military_strength": self.military_strength,
             "stability": self.stability,
-            "events": self.events,
+            "news": self.news,
             "game_over": self.game_over,
             "game_over_reason": self.game_over_reason,
+            "last_tax_rate": self.last_tax_rate,
+            "last_inflation_rate": self.last_inflation_rate,
+            "last_defense_spending": self.last_defense_spending,
+            "last_bread_circus_spending": self.last_bread_circus_spending,
         }
 
     @classmethod
@@ -217,7 +255,11 @@ class EmpireState:
             happiness=d["happiness"],
             military_strength=d["military_strength"],
             stability=d["stability"],
-            events=d["events"],
+            news=d.get("news", []),
             game_over=d.get("game_over", False),
             game_over_reason=d.get("game_over_reason", ""),
+            last_tax_rate=d.get("last_tax_rate", d["tax_rate"]),
+            last_inflation_rate=d.get("last_inflation_rate", d["inflation_rate"]),
+            last_defense_spending=d.get("last_defense_spending", d["defense_spending"]),
+            last_bread_circus_spending=d.get("last_bread_circus_spending", d["bread_circus_spending"]),
         )
