@@ -1,0 +1,91 @@
+:root{
+  /* ---- Brand teal — sampled from the logo drop and tagline artwork ---- */
+  --color-teal-900:#013f4f;
+  --color-teal-800:#036478;
+  --color-teal-700:#017998;
+  --color-teal-600:#008bb2; /* BRAND PRIMARY — tagline colour, exact */
+  --color-teal-500:#0c90b6;
+  --color-teal-400:#39a5c3;
+  --color-teal-300:#7cc3d8;
+  --color-teal-200:#b8dee9;
+  --color-teal-100:#e4f2f7;
+
+  /* ---- Presentation accents — "Fountain Color Pallete" deck ---- */
+  --color-sky:#30acec;    /* Accent 1 */
+  --color-green:#80c34f;  /* Accent 2 */
+  --color-amber:#e29d3e;  /* Accent 3 */
+  --color-red:#d64a3b;    /* extended: theme accent 4, not on the palette slide */
+
+  /* ---- Neutrals ---- */
+  --color-white:#ffffff;      /* Background 1 */
+  --color-gray-50:#f5f6f7;
+  --color-gray-100:#e6e7e8;
+  --color-gray-200:#c6c6c6;   /* Background 2 */
+  --color-gray-400:#9a9a9a;
+  --color-gray-600:#5a5a5a;
+  --color-gray-800:#282828;   /* Text */
+  --color-gray-900:#212121;
+  --color-black:#000000;
+
+  /* ---- Semantic surfaces ---- */
+  --surface-page:var(--color-white);
+  --surface-muted:var(--color-gray-50);
+  --surface-card:var(--color-white);
+  --surface-sunken:var(--color-gray-100);
+  --surface-inverse:var(--color-gray-900);
+  --surface-brand:var(--color-teal-600);
+  --surface-brand-soft:var(--color-teal-100);
+
+  /* ---- Semantic text ---- */
+  --text-body:var(--color-gray-800);
+  --text-muted:var(--color-gray-600);
+  --text-faint:var(--color-gray-400);
+  --text-brand:var(--color-teal-600);
+  --text-inverse:var(--color-white);
+  --text-on-brand:var(--color-white);
+
+  /* ---- Semantic borders ---- */
+  --border-subtle:var(--color-gray-100);
+  --border-default:var(--color-gray-200);
+  --border-strong:var(--color-gray-400);
+  --border-brand:var(--color-teal-600);
+
+  /* ---- Interactive ---- */
+  --accent-primary:var(--color-teal-600);
+  --accent-primary-hover:var(--color-teal-700);
+  --accent-primary-active:var(--color-teal-800);
+  --focus-ring:var(--color-teal-400);
+  --link:var(--color-teal-700);
+  --link-hover:var(--color-teal-900);
+
+  /* ---- Status ---- */
+  --status-success:var(--color-green);
+  --status-warning:var(--color-amber);
+  --status-info:var(--color-sky);
+  --status-danger:var(--color-red);
+
+  /* ---- Signature gradients (the drop mark is a spherical teal gradient) ---- */
+  --gradient-drop:radial-gradient(circle at 62% 78%, #ffffff 0%, #56b7cf 14%, #008bb2 42%, #036478 100%); /* @kind color */
+  --gradient-brand-band:linear-gradient(90deg,#036478 0%,#008bb2 55%,#39a5c3 100%); /* @kind color */
+}
+
+[data-theme="dark"]{
+  --surface-page:var(--color-gray-900);
+  --surface-muted:#2c2c2c;
+  --surface-card:#2c2c2c;
+  --surface-sunken:#191919;
+  --surface-inverse:var(--color-white);
+  --text-body:#f2f2f2;
+  --text-muted:#b5b5b5;
+  --text-faint:var(--color-gray-600);
+  --text-brand:var(--color-teal-400);
+  --text-inverse:var(--color-gray-900);
+  --border-subtle:#3a3a3a;
+  --border-default:#4a4a4a;
+  --border-strong:var(--color-gray-600);
+  --accent-primary:var(--color-teal-500);
+  --accent-primary-hover:var(--color-teal-400);
+  --accent-primary-active:var(--color-teal-300);
+  --link:var(--color-teal-300);
+  --link-hover:var(--color-teal-200);
+}

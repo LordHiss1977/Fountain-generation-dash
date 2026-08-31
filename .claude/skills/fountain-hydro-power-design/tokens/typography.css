@@ -1,0 +1,46 @@
+:root{
+  /* Families */
+  --font-display:"Garamond Premier Pro","EB Garamond","Adobe Garamond Pro",Georgia,serif;
+  --font-brand:"Bahnschrift","DIN Alternate","Segoe UI Semibold",system-ui,sans-serif;
+  --font-body:"Source Sans 3",Corbel,"Segoe UI",system-ui,sans-serif;
+  --font-mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+
+  /* Weights */
+  --weight-light:300;
+  --weight-regular:400;
+  --weight-semibold:600;
+  --weight-bold:700;
+
+  /* UI type scale */
+  --text-2xs:11px;
+  --text-xs:12px;
+  --text-sm:14px;
+  --text-md:16px;
+  --text-lg:18px;
+  --text-xl:21px;
+  --text-2xl:26px;
+  --text-3xl:32px;
+  --text-4xl:42px;
+  --text-5xl:56px;
+
+  /* Deck type scale — 1920x1080 stage, from the PowerPoint masters */
+  --slide-title:44pt; /* @kind font */
+  --slide-heading:28pt; /* @kind font */
+  --slide-body-1:24pt; /* @kind font */
+  --slide-body-2:20pt; /* @kind font */
+  --slide-body-3:18pt; /* @kind font */
+  --slide-caption:12pt; /* @kind font */
+
+  /* Line heights */
+  --leading-tight:1.1;
+  --leading-snug:1.25;
+  --leading-normal:1.5;
+  --leading-relaxed:1.65;
+
+  /* Tracking — the wordmark and all-caps brand labels are letterspaced */
+  --tracking-tight:-0.01em;
+  --tracking-normal:0;
+  --tracking-wide:0.04em;
+  --tracking-wider:0.09em;
+  --tracking-wordmark:0.02em;
+}

@@ -1,0 +1,36 @@
+:root{
+  /* Radii — the source artwork is square-cornered; radii stay small and functional */
+  --radius-none:0;
+  --radius-sm:2px;
+  --radius-md:4px;
+  --radius-lg:8px;
+  --radius-pill:999px;
+  --radius-circle:50%;
+
+  /* Borders */
+  --border-width:1px;
+  --border-width-thick:2px;
+  --rule-accent:3px; /* teal rule under section headings */
+
+  /* Shadows — restrained, neutral, never coloured */
+  --shadow-none:none;
+  --shadow-xs:0 1px 2px rgba(40,40,40,.08);
+  --shadow-sm:0 1px 3px rgba(40,40,40,.10),0 1px 2px rgba(40,40,40,.06);
+  --shadow-md:0 4px 12px rgba(40,40,40,.10);
+  --shadow-lg:0 12px 32px rgba(40,40,40,.14);
+  --shadow-focus:0 0 0 3px rgba(0,139,178,.35);
+  --shadow-inset:inset 0 1px 2px rgba(40,40,40,.08);
+
+  /* Motion */
+  --ease-standard:cubic-bezier(.4,0,.2,1); /* @kind other */
+  --ease-out:cubic-bezier(0,0,.2,1); /* @kind other */
+  --ease-in:cubic-bezier(.4,0,1,1); /* @kind other */
+  --duration-fast:120ms; /* @kind other */
+  --duration-base:200ms; /* @kind other */
+  --duration-slow:320ms; /* @kind other */
+
+  /* Overlays */
+  --overlay-scrim:rgba(33,33,33,.62); /* @kind color */
+  --overlay-protection:linear-gradient(180deg,rgba(33,33,33,0) 0%,rgba(33,33,33,.72) 100%); /* @kind color */
+  --blur-panel:blur(12px); /* @kind other */
+}
