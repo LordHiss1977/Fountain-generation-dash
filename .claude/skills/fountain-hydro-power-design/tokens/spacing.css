@@ -1,0 +1,26 @@
+:root{
+  --space-0:0;
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:20px;
+  --space-6:24px;
+  --space-8:32px;
+  --space-10:40px;
+  --space-12:48px;
+  --space-16:64px;
+  --space-20:80px;
+  --space-24:96px;
+
+  /* Layout */
+  --container-max:1200px;
+  --gutter:24px;
+  --gutter-lg:48px;
+
+  /* Slide geometry, converted from the .potx masters (12192000 x 6858000 EMU = 1280x720pt) */
+  --slide-margin-x:88px;   /* 838200 EMU */
+  --slide-title-top:38px;  /* 365125 EMU */
+  --slide-body-top:192px;  /* 1825625 EMU */
+  --slide-footer-y:668px;  /* 6356350 EMU */
+}

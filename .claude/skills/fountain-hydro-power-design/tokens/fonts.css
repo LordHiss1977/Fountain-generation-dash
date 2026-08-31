@@ -1,0 +1,6 @@
+/* Brand fonts shipped with the Illustrator logo package (Logos/Editables/Logo editable/Fonts). */
+@font-face{font-family:"Garamond Premier Pro";src:url("../assets/fonts/GaramondPremrPro-Bd.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Bahnschrift";src:url("../assets/fonts/bahnschrift.ttf") format("truetype");font-weight:100 900;font-stretch:75% 100%;font-style:normal;font-display:swap}
+/* SUBSTITUTION: the PowerPoint templates use Corbel (Microsoft, not redistributable).
+   Source Sans 3 is the nearest free humanist sans. Replace if Corbel files are licensed. */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300..700;1,400&display=swap");

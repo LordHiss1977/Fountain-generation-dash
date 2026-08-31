@@ -1,0 +1,40 @@
+<!-- @dsCard group="EM Dashboard" viewport="1440x900" name="Bajo Frío — EM weekly dashboard" subtitle="Operational maintenance dashboard, click-through" -->
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Bajo Frío · Mantenimiento electromecánico</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="data.js"></script>
+<style>html,body{margin:0}body{font-family:var(--font-body);color:var(--text-body);background:var(--surface-muted)}a{color:var(--link)}a:hover{color:var(--link-hover)}</style>
+</head><body><div id="root"></div>
+<script type="text/babel" src="Shell.jsx"></script>
+<script type="text/babel" src="Overview.jsx"></script>
+<script type="text/babel" src="Orders.jsx"></script>
+<script type="text/babel">
+const { Tabs } = window.FountainHydroPowerDesignSystem_39598f;
+const TITLES = { resumen:"Mantenimiento electromecánico", ordenes:"Órdenes de trabajo", activos:"Activos", indicadores:"Indicadores", informes:"Informes" };
+
+function App(){
+  const d = window.EMData;
+  const [view,setView] = React.useState('resumen');
+  const [order,setOrder] = React.useState(null);
+  return (
+    <div style={{display:'flex',height:'100vh',minHeight:900,overflow:'hidden'}}>
+      <Sidebar view={view} onNav={(v)=>{setView(v);setOrder(null);}} />
+      <div style={{flex:1,display:'flex',flexDirection:'column',minWidth:0}}>
+        <Topbar title={TITLES[view]} week={d.week} period={d.period} onExport={()=>setView('informes')} />
+        <main style={{flex:1,overflow:'auto',padding:'var(--space-8)'}}>
+          {view==='resumen' && <Overview data={d} onOpenOrder={()=>setView('ordenes')} />}
+          {view==='ordenes' && <OrdersView data={d} selected={order} onSelect={setOrder} />}
+          {view==='activos' && <Placeholder label="Activos" />}
+          {view==='indicadores' && <Placeholder label="Indicadores" />}
+          {view==='informes' && <Placeholder label="Informes" />}
+        </main>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>

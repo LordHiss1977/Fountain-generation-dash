@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Presentation deck" description="Fountain Hydro Power 16:9 deck — title, section, content, KPI, table and closing slides." -->
+<helmet>
+<script src="./ds-base.js"></script>
+<style>html,body{margin:0;background:#111}</style>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+<section data-screen-label="01" style="position:relative;width:1920px;height:1080px;background:var(--color-teal-600);overflow:hidden;font-family:var(--font-body)">
+<img src="../../assets/logos/mark-drop.png" alt="" style="position:absolute;right:-180px;bottom:-270px;width:1080px;opacity:.10">
+<div style="position:absolute;left:132px;top:300px;right:600px">
+<img src="../../assets/logos/logo-primary-negative.png" alt="Fountain Hydro Power Corp." style="width:780px;display:block;margin-bottom:96px">
+<div style="font-family:var(--font-brand);font-size:23px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75)">Informe de actualización</div>
+<h1 style="margin:27px 0 0;font-family:var(--font-body);font-size:84px;font-weight:600;line-height:1.15;color:#fff">Central hidroeléctrica<br>Bajo Frío</h1>
+<div style="width:132px;height:6px;background:#fff;margin-top:42px"></div>
+<p style="margin:42px 0 0;font-size:30px;line-height:1.5;color:rgba(255,255,255,.85)">Resumen de operación y mantenimiento · Semana 24</p>
+</div>
+<div style="position:absolute;left:132px;right:132px;top:1002px;display:flex;align-items:center;justify-content:space-between;font-size:20px;color:rgba(255,255,255,.55)">
+<span>15 de junio de 2022</span>
+<span style="display:flex;align-items:center;gap:30px"><span>01</span><img src="../../assets/logos/logo-secondary-negative.png" alt="" style="height:39px;display:block"></span>
+</div>
+</section>
+<section data-screen-label="02" style="position:relative;width:1920px;height:1080px;background:#212121;overflow:hidden;font-family:var(--font-body)">
+<div style="position:absolute;left:132px;top:420px;right:300px">
+<div style="font-family:var(--font-brand);font-size:23px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--color-teal-400)">Sección 02</div>
+<h1 style="margin:30px 0 0;font-size:96px;font-weight:600;line-height:1.1;color:#fff">Mantenimiento<br>electromecánico</h1>
+<div style="width:132px;height:6px;background:var(--color-teal-400);margin-top:48px"></div>
+</div>
+<img src="../../assets/logos/mark-drop.png" alt="" style="position:absolute;right:180px;top:375px;width:270px">
+<div style="position:absolute;left:132px;right:132px;top:1002px;display:flex;align-items:center;justify-content:space-between;font-size:20px;color:rgba(255,255,255,.55)">
+<span>15 de junio de 2022</span>
+<span style="display:flex;align-items:center;gap:30px"><span>02</span><img src="../../assets/logos/logo-secondary-negative.png" alt="" style="height:39px;display:block"></span>
+</div>
+</section>
+<section data-screen-label="03" style="position:relative;width:1920px;height:1080px;background:url(../../assets/images/template-background.png) center/cover,#fff;overflow:hidden;font-family:var(--font-body);color:var(--text-body)">
+<div style="position:absolute;left:132px;right:132px;top:57px">
+<div style="font-family:var(--font-brand);font-size:23px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-brand)">Operación</div>
+<h1 style="margin:21px 0 0;font-size:66px;font-weight:600;line-height:1.15;letter-spacing:-.01em">Resumen de la semana</h1>
+<div style="width:132px;height:6px;background:var(--accent-primary);margin-top:33px"></div>
+</div>
+<div style="position:absolute;left:132px;right:132px;top:345px;display:grid;grid-template-columns:1fr 1fr;gap:84px">
+<ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:24px">
+<li style="position:relative;padding-left:33px;font-size:32px;line-height:1.6">La central operó sin interrupciones no programadas.<span style="position:absolute;left:0;top:18px;width:12px;height:12px;background:var(--accent-primary)"></span></li>
+<li style="position:relative;padding-left:33px;font-size:32px;line-height:1.6">Se ejecutaron siete órdenes de trabajo, dos correctivas.<span style="position:absolute;left:0;top:18px;width:12px;height:12px;background:var(--accent-primary)"></span></li>
+<li style="position:relative;padding-left:33px;font-size:32px;line-height:1.6">512 horas-hombre acumuladas en el período.<span style="position:absolute;left:0;top:18px;width:12px;height:12px;background:var(--accent-primary)"></span></li>
+<li style="position:relative;padding-left:33px;font-size:32px;line-height:1.6">Sin hallazgos de seguridad reportables.<span style="position:absolute;left:0;top:18px;width:12px;height:12px;background:var(--accent-primary)"></span></li>
+</ul>
+<div style="background:#fff;border:1px solid var(--border-subtle);box-shadow:var(--shadow-sm);border-radius:6px;padding:48px">
+<div style="font-family:var(--font-brand);font-size:18px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)">Disponibilidad</div>
+<div style="font-family:var(--font-brand);font-size:114px;font-weight:600;line-height:1;margin-top:21px;font-variant-numeric:tabular-nums">98,4 <span style="font-size:51px;color:var(--text-muted)">%</span></div>
+<div style="font-family:var(--font-brand);font-size:27px;font-weight:600;color:var(--status-success);margin-top:24px">+1,2 pp vs. semana 23</div>
+<div style="height:9px;background:var(--surface-sunken);border-radius:999px;margin-top:42px;overflow:hidden"><div style="width:98.4%;height:100%;background:var(--accent-primary)"></div></div>
+</div>
+</div>
+<div style="position:absolute;left:132px;right:132px;top:1002px;display:flex;align-items:center;justify-content:space-between;font-size:20px;color:var(--text-faint)">
+<span>15 de junio de 2022</span><span>Fountain Hydro Power Corp. · Informe semanal EM</span>
+<span style="display:flex;align-items:center;gap:30px"><span>03</span><img src="../../assets/logos/logo-secondary-light-bg.png" alt="" style="height:39px;display:block"></span>
+</div>
+</section>
+<section data-screen-label="04" style="position:relative;width:1920px;height:1080px;background:#fff;overflow:hidden;font-family:var(--font-body);color:var(--text-body)">
+<div style="position:absolute;left:132px;right:132px;top:57px">
+<div style="font-family:var(--font-brand);font-size:23px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-brand)">Indicadores</div>
+<h1 style="margin:21px 0 0;font-size:66px;font-weight:600;line-height:1.15;letter-spacing:-.01em">Desempeño acumulado</h1>
+<div style="width:132px;height:6px;background:var(--accent-primary);margin-top:33px"></div>
+</div>
+<div style="position:absolute;left:132px;right:132px;top:375px;display:grid;grid-template-columns:repeat(4,1fr);gap:60px">
+<div style="border-top:6px solid var(--accent-primary);padding-top:39px">
+<div style="font-family:var(--font-brand);font-size:20px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)">Disponibilidad</div>
+<div style="font-family:var(--font-brand);font-size:102px;font-weight:600;line-height:1;margin-top:27px;font-variant-numeric:tabular-nums">98,4<span style="font-size:42px;color:var(--text-muted)"> %</span></div>
+<div style="font-size:24px;color:var(--text-faint);margin-top:24px">Promedio semanal</div>
+</div>
+<div style="border-top:6px solid var(--accent-primary);padding-top:39px">
+<div style="font-family:var(--font-brand);font-size:20px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)">Generación</div>
+<div style="font-family:var(--font-brand);font-size:102px;font-weight:600;line-height:1;margin-top:27px;font-variant-numeric:tabular-nums">142<span style="font-size:42px;color:var(--text-muted)"> GWh</span></div>
+<div style="font-size:24px;color:var(--text-faint);margin-top:24px">Acumulada 2022</div>
+</div>
+<div style="border-top:6px solid var(--accent-primary);padding-top:39px">
+<div style="font-family:var(--font-brand);font-size:20px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)">Órdenes cerradas</div>
+<div style="font-family:var(--font-brand);font-size:102px;font-weight:600;line-height:1;margin-top:27px;font-variant-numeric:tabular-nums">7</div>
+<div style="font-size:24px;color:var(--text-faint);margin-top:24px">2 correctivas</div>
+</div>
+<div style="border-top:6px solid var(--status-warning);padding-top:39px">
+<div style="font-family:var(--font-brand);font-size:20px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)">Horas-hombre</div>
+<div style="font-family:var(--font-brand);font-size:102px;font-weight:600;line-height:1;margin-top:27px;font-variant-numeric:tabular-nums">512</div>
+<div style="font-size:24px;color:var(--text-faint);margin-top:24px">Semana 24</div>
+</div>
+</div>
+<div style="position:absolute;left:132px;right:132px;top:1002px;display:flex;align-items:center;justify-content:space-between;font-size:20px;color:var(--text-faint)">
+<span>15 de junio de 2022</span><span>Fountain Hydro Power Corp. · Informe semanal EM</span>
+<span style="display:flex;align-items:center;gap:30px"><span>04</span><img src="../../assets/logos/logo-secondary-light-bg.png" alt="" style="height:39px;display:block"></span>
+</div>
+</section>
+<section data-screen-label="05" style="position:relative;width:1920px;height:1080px;background:#fff;overflow:hidden;font-family:var(--font-body);color:var(--text-body)">
+<div style="position:absolute;left:132px;right:132px;top:57px">
+<div style="font-family:var(--font-brand);font-size:23px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-brand)">Órdenes de trabajo</div>
+<h1 style="margin:21px 0 0;font-size:66px;font-weight:600;line-height:1.15;letter-spacing:-.01em">Detalle de la semana</h1>
+<div style="width:132px;height:6px;background:var(--accent-primary);margin-top:33px"></div>
+</div>
+<div style="position:absolute;left:132px;right:132px;top:360px">
+<x-import component-from-global-scope="FountainHydroPowerDesignSystem_39598f.Table" columns="{{ orderColumns }}" rows="{{ orders }}" scale="slide" hint-size="100%,420px"></x-import>
+</div>
+<div style="position:absolute;left:132px;right:132px;top:1002px;display:flex;align-items:center;justify-content:space-between;font-size:20px;color:var(--text-faint)">
+<span>15 de junio de 2022</span><span>Fountain Hydro Power Corp. · Informe semanal EM</span>
+<span style="display:flex;align-items:center;gap:30px"><span>05</span><img src="../../assets/logos/logo-secondary-light-bg.png" alt="" style="height:39px;display:block"></span>
+</div>
+</section>
+<section data-screen-label="06" style="position:relative;width:1920px;height:1080px;background:url(../../assets/images/template-background.png) center/cover,#fff;overflow:hidden;font-family:var(--font-body);color:var(--text-body)">
+<div style="position:absolute;left:132px;top:360px;right:132px">
+<div style="font-family:var(--font-brand);font-size:23px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-brand)">Gracias</div>
+<h1 style="margin:27px 0 0;font-size:78px;font-weight:600;line-height:1.15;letter-spacing:-.01em">Preguntas y comentarios</h1>
+<div style="width:132px;height:6px;background:var(--accent-primary);margin-top:39px"></div>
+<div style="display:flex;gap:120px;margin-top:78px;font-size:29px;line-height:1.7;color:var(--text-muted)">
+<div><div style="font-family:var(--font-brand);font-size:18px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-brand);margin-bottom:18px">Operación</div>Central Bajo Frío<br>Provincia de Chiriquí, Panamá</div>
+<div><div style="font-family:var(--font-brand);font-size:18px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-brand);margin-bottom:18px">Contacto</div>Fountain Hydro Power Corp.</div>
+</div>
+<img src="../../assets/logos/logo-primary-light-bg.png" alt="Fountain Hydro Power Corp." style="width:645px;display:block;margin-top:99px">
+</div>
+</section>
+</x-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const NS = window.FountainHydroPowerDesignSystem_39598f || {};
+    const StatusPill = NS.StatusPill;
+    const orders = [
+      { id: "OT-1042", desc: "Inspección de rodete", loc: "Unidad 1", hours: "12,5", status: "operational", statusLabel: "Cerrada" },
+      { id: "OT-1043", desc: "Cambio de aceite del regulador", loc: "Unidad 2", hours: "8,0", status: "operational", statusLabel: "Cerrada" },
+      { id: "OT-1048", desc: "Termografía de tableros", loc: "Casa de máquinas", hours: "4,0", status: "planned", statusLabel: "En ejecución" },
+      { id: "OT-1051", desc: "Falla de sensor de nivel", loc: "Captación", hours: "3,25", status: "fault", statusLabel: "Abierta" },
+    ];
+    const orderColumns = [
+      { key: "id", header: "OT", width: 180 },
+      { key: "desc", header: "Descripción" },
+      { key: "loc", header: "Ubicación", width: 300 },
+      { key: "hours", header: "Horas", align: "right", width: 160 },
+      { key: "statusLabel", header: "Estado", width: 340,
+        render: (r) => StatusPill ? React.createElement(StatusPill, { status: r.status, label: r.statusLabel, style: { fontSize: 24, padding: "8px 22px 8px 18px" } }) : r.statusLabel },
+    ];
+    return { orders, orderColumns };
+  }
+}
+
+</script>
+</body>
+</html>

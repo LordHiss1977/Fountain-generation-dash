@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Operations dashboard" description="Fountain Hydro Power operational dashboard — KPI header, availability chart, asset and work-order tables." -->
+<helmet>
+<script src="./ds-base.js"></script>
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.js"></script>
+<style>html,body{margin:0}</style>
+</helmet>
+<div style="display:flex;min-height:100vh;font-family:var(--font-body);color:var(--text-body);background:var(--surface-muted)">
+<aside style="width:244px;flex:none;background:var(--color-teal-900);display:flex;flex-direction:column;padding:22px 0">
+<div style="padding:0 20px 24px"><img src="../../assets/logos/logo-secondary-negative.png" alt="Fountain Hydro Power Corp." style="width:150px;display:block"></div>
+<nav style="display:flex;flex-direction:column;gap:2px;padding:0 10px">
+<a href="#resumen" style="display:flex;align-items:center;gap:11px;padding:10px 12px;border-left:3px solid var(--color-teal-300);background:rgba(255,255,255,.10);color:#fff;text-decoration:none;border-radius:0 2px 2px 0;font-family:var(--font-brand);font-size:14px;font-weight:600;letter-spacing:.04em">Resumen</a>
+<a href="#ordenes" style="display:flex;align-items:center;gap:11px;padding:10px 12px;border-left:3px solid transparent;color:rgba(255,255,255,.66);text-decoration:none;font-family:var(--font-brand);font-size:14px;font-weight:600;letter-spacing:.04em">Órdenes de trabajo</a>
+<a href="#activos" style="display:flex;align-items:center;gap:11px;padding:10px 12px;border-left:3px solid transparent;color:rgba(255,255,255,.66);text-decoration:none;font-family:var(--font-brand);font-size:14px;font-weight:600;letter-spacing:.04em">Activos</a>
+<a href="#indicadores" style="display:flex;align-items:center;gap:11px;padding:10px 12px;border-left:3px solid transparent;color:rgba(255,255,255,.66);text-decoration:none;font-family:var(--font-brand);font-size:14px;font-weight:600;letter-spacing:.04em">Indicadores</a>
+<a href="#informes" style="display:flex;align-items:center;gap:11px;padding:10px 12px;border-left:3px solid transparent;color:rgba(255,255,255,.66);text-decoration:none;font-family:var(--font-brand);font-size:14px;font-weight:600;letter-spacing:.04em">Informes</a>
+</nav>
+<div style="margin-top:auto;padding:18px 20px 0;border-top:1px solid rgba(255,255,255,.12)">
+<div style="font-family:var(--font-brand);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.45)">Central</div>
+<div style="font-family:var(--font-brand);font-size:16px;font-weight:600;color:#fff;margin-top:4px">Bajo Frío</div>
+<div style="font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.5);margin-top:2px">Chiriquí, Panamá</div>
+</div>
+</aside>
+<div style="flex:1;display:flex;flex-direction:column;min-width:0">
+<header style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 32px;background:var(--surface-card);border-bottom:1px solid var(--border-subtle)">
+<div>
+<div style="display:flex;align-items:center;gap:10px">
+<h1 style="margin:0;font-family:var(--font-body);font-size:21px;font-weight:600">Mantenimiento electromecánico</h1>
+<x-import component-from-global-scope="FountainHydroPowerDesignSystem_39598f.Badge" tone="brand" hint-size="90px,22px">Semana 24</x-import>
+</div>
+<div style="font-family:var(--font-body);font-size:12px;color:var(--text-faint);margin-top:3px">13 – 19 de junio de 2022</div>
+</div>
+<x-import component-from-global-scope="FountainHydroPowerDesignSystem_39598f.Button" variant="secondary" size="sm" hint-size="150px,30px">Exportar informe</x-import>
+</header>
+<main style="flex:1;padding:32px;display:flex;flex-direction:column;gap:24px">
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-top:3px solid var(--accent-primary);border-radius:4px;box-shadow:var(--shadow-sm);padding:20px">
+<div style="font-family:var(--font-brand);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px">Disponibilidad</div>
+<div style="display:flex;align-items:baseline;gap:6px"><span style="font-family:var(--font-brand);font-size:42px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums">98,4</span><span style="font-family:var(--font-brand);font-size:18px;color:var(--text-muted)">%</span></div>
+<div style="margin-top:8px;font-family:var(--font-body);font-size:12px"><span style="color:var(--status-success);font-weight:600">+1,2 pp</span> <span style="color:var(--text-faint)">vs. semana 23</span></div>
+</div>
+<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-top:3px solid var(--accent-primary);border-radius:4px;box-shadow:var(--shadow-sm);padding:20px">
+<div style="font-family:var(--font-brand);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px">Generación</div>
+<div style="display:flex;align-items:baseline;gap:6px"><span style="font-family:var(--font-brand);font-size:42px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums">3,42</span><span style="font-family:var(--font-brand);font-size:18px;color:var(--text-muted)">GWh</span></div>
+<div style="margin-top:8px;font-family:var(--font-body);font-size:12px"><span style="color:var(--status-danger);font-weight:600">−3,1 %</span> <span style="color:var(--text-faint)">semana</span></div>
+</div>
+<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-top:3px solid var(--accent-primary);border-radius:4px;box-shadow:var(--shadow-sm);padding:20px">
+<div style="font-family:var(--font-brand);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px">Órdenes cerradas</div>
+<div style="display:flex;align-items:baseline;gap:6px"><span style="font-family:var(--font-brand);font-size:42px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums">7</span></div>
+<div style="margin-top:8px;font-family:var(--font-body);font-size:12px"><span style="color:var(--text-muted);font-weight:600">de 8</span> <span style="color:var(--text-faint)">plan semanal</span></div>
+</div>
+<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-top:3px solid var(--accent-primary);border-radius:4px;box-shadow:var(--shadow-sm);padding:20px">
+<div style="font-family:var(--font-brand);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px">Horas-hombre</div>
+<div style="display:flex;align-items:baseline;gap:6px"><span style="font-family:var(--font-brand);font-size:42px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums">512</span><span style="font-family:var(--font-brand);font-size:18px;color:var(--text-muted)">h</span></div>
+<div style="margin-top:8px;font-family:var(--font-body);font-size:12px"><span style="color:var(--text-muted);font-weight:600">+46 h</span> <span style="color:var(--text-faint)">acumulado</span></div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1.55fr 1fr;gap:16px">
+<section style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:4px;box-shadow:var(--shadow-sm);padding:24px">
+<div style="font-family:var(--font-brand);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text-brand);margin-bottom:4px">Operación</div>
+<h3 style="margin:0 0 8px;font-family:var(--font-body);font-size:18px;font-weight:600">Disponibilidad diaria</h3>
+<div style="display:flex;align-items:flex-end;gap:14px;height:168px;padding-top:8px">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><div style="font-family:var(--font-brand);font-size:11px;color:var(--text-muted);font-variant-numeric:tabular-nums">100%</div><div style="width:100%;height:112px;background:var(--surface-sunken);display:flex;align-items:flex-end"><div style="width:100%;height:100%;background:var(--accent-primary)"></div></div><div style="font-family:var(--font-brand);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-faint)">Lun</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><div style="font-family:var(--font-brand);font-size:11px;color:var(--text-muted);font-variant-numeric:tabular-nums">100%</div><div style="width:100%;height:112px;background:var(--surface-sunken);display:flex;align-items:flex-end"><div style="width:100%;height:100%;background:var(--accent-primary)"></div></div><div style="font-family:var(--font-brand);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-faint)">Mar</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><div style="font-family:var(--font-brand);font-size:11px;color:var(--text-muted);font-variant-numeric:tabular-nums">94%</div><div style="width:100%;height:112px;background:var(--surface-sunken);display:flex;align-items:flex-end"><div style="width:100%;height:50%;background:var(--status-warning)"></div></div><div style="font-family:var(--font-brand);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-faint)">Mié</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><div style="font-family:var(--font-brand);font-size:11px;color:var(--text-muted);font-variant-numeric:tabular-nums">92%</div><div style="width:100%;height:112px;background:var(--surface-sunken);display:flex;align-items:flex-end"><div style="width:100%;height:33.3%;background:var(--status-warning)"></div></div><div style="font-family:var(--font-brand);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-faint)">Jue</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><div style="font-family:var(--font-brand);font-size:11px;color:var(--text-muted);font-variant-numeric:tabular-nums">100%</div><div style="width:100%;height:112px;background:var(--surface-sunken);display:flex;align-items:flex-end"><div style="width:100%;height:100%;background:var(--accent-primary)"></div></div><div style="font-family:var(--font-brand);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-faint)">Vie</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><div style="font-family:var(--font-brand);font-size:11px;color:var(--text-muted);font-variant-numeric:tabular-nums">100%</div><div style="width:100%;height:112px;background:var(--surface-sunken);display:flex;align-items:flex-end"><div style="width:100%;height:100%;background:var(--accent-primary)"></div></div><div style="font-family:var(--font-brand);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-faint)">Sáb</div></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><div style="font-family:var(--font-brand);font-size:11px;color:var(--text-muted);font-variant-numeric:tabular-nums">100%</div><div style="width:100%;height:112px;background:var(--surface-sunken);display:flex;align-items:flex-end"><div style="width:100%;height:100%;background:var(--accent-primary)"></div></div><div style="font-family:var(--font-brand);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-faint)">Dom</div></div>
+</div>
+</section>
+<section style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:4px;box-shadow:var(--shadow-sm);padding:24px">
+<div style="font-family:var(--font-brand);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text-brand);margin-bottom:4px">Novedades</div>
+<h3 style="margin:0 0 4px;font-family:var(--font-body);font-size:18px;font-weight:600">Notas del período</h3>
+<div style="display:flex;gap:12px;padding:14px 0">
+<span style="width:8px;height:8px;border-radius:50%;background:var(--status-danger);flex:none;margin-top:6px"></span>
+<div><div style="font-size:14px;font-weight:600">Sensor de nivel en captación</div><p style="margin:4px 0 0;font-size:14px;line-height:1.65;color:var(--text-muted)">El transmisor presentó lecturas erráticas el jueves. Se instaló un equipo de respaldo; la sustitución definitiva queda programada para la semana 25.</p></div>
+</div>
+<div style="display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--border-subtle)">
+<span style="width:8px;height:8px;border-radius:50%;background:var(--status-warning);flex:none;margin-top:6px"></span>
+<div><div style="font-size:14px;font-weight:600">Parada programada Unidad 2</div><p style="margin:4px 0 0;font-size:14px;line-height:1.65;color:var(--text-muted)">Cambio de aceite del regulador ejecutado dentro de la ventana prevista de 9 horas.</p></div>
+</div>
+<div style="display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--border-subtle)">
+<span style="width:8px;height:8px;border-radius:50%;background:var(--status-success);flex:none;margin-top:6px"></span>
+<div><div style="font-size:14px;font-weight:600">Sin hallazgos de seguridad</div><p style="margin:4px 0 0;font-size:14px;line-height:1.65;color:var(--text-muted)">No se reportaron incidentes ni condiciones inseguras durante el período.</p></div>
+</div>
+</section>
+</div>
+<div>
+<div style="font-family:var(--font-brand);font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text-brand);margin-bottom:6px">Mantenimiento</div>
+<h3 style="margin:0 0 16px;font-family:var(--font-body);font-size:26px;font-weight:600">Órdenes de trabajo</h3>
+<x-import component-from-global-scope="FountainHydroPowerDesignSystem_39598f.Table" columns="{{ orderColumns }}" rows="{{ orders }}" dense="{{ true }}" hint-size="100%,300px"></x-import>
+</div>
+</main>
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    const NS = window.FountainHydroPowerDesignSystem_39598f || {};
+    const StatusPill = NS.StatusPill;
+    const orders = [
+      { id: "OT-1042", desc: "Inspección de rodete", loc: "Unidad 1", type: "Preventiva", hours: "12,5", status: "operational", statusLabel: "Cerrada" },
+      { id: "OT-1043", desc: "Cambio de aceite del regulador", loc: "Unidad 2", type: "Preventiva", hours: "8,0", status: "operational", statusLabel: "Cerrada" },
+      { id: "OT-1044", desc: "Prueba de protecciones diferenciales", loc: "Subestación", type: "Preventiva", hours: "6,0", status: "operational", statusLabel: "Cerrada" },
+      { id: "OT-1048", desc: "Termografía de tableros de control", loc: "Casa de máquinas", type: "Predictiva", hours: "4,0", status: "planned", statusLabel: "En ejecución" },
+      { id: "OT-1051", desc: "Falla de sensor de nivel", loc: "Captación", type: "Correctiva", hours: "3,25", status: "fault", statusLabel: "Abierta" },
+    ];
+
+    const orderColumns = [
+      { key: "id", header: "OT", width: 92 },
+      { key: "desc", header: "Descripción" },
+      { key: "loc", header: "Ubicación", width: 160 },
+      { key: "type", header: "Tipo", width: 110 },
+      { key: "hours", header: "Horas", align: "right", width: 72 },
+      { key: "statusLabel", header: "Estado", width: 180,
+        render: (r) => StatusPill ? React.createElement(StatusPill, { status: r.status, label: r.statusLabel }) : r.statusLabel },
+    ];
+
+    return { orders, orderColumns };
+  }
+}
+
+</script>
+</body>
+</html>
